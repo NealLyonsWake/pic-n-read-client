@@ -1,5 +1,6 @@
 const uploader = document.querySelector('#uploader');
 const playPauseBTN = document.querySelector('#play-pause');
+const resultParent = document.querySelector('#result-parent')
 
 async function testRequest(e) {
     const formData = new FormData();
@@ -7,6 +8,7 @@ async function testRequest(e) {
     console.log(uploader.files[0]);
 
     const key = 'https://pic-n-read-server.herokuapp.com/requestkey';
+    // const key = 'http://localhost:3000/requestkey';
     const endPoint = 'https://api.api-ninjas.com/v1/imagetotext';
 
     try {
@@ -29,9 +31,13 @@ async function testRequest(e) {
         const utterance = new SpeechSynthesisUtterance(txtExtract);
         speechSynthesis.speak(utterance);
 
+        const presentTxt = document.createElement("p");
+        presentTxt.innerHTML = txtExtract;
+        resultParent.appendChild(presentTxt);
+
     }
-    catch {
-        console.log('error');
+    catch (e) {
+        console.log(e);
     };
 
 };
