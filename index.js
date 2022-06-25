@@ -6,7 +6,7 @@ async function testRequest(e) {
     formData.append('image', uploader.files[0]);
     console.log(uploader.files[0]);
 
-    const key = 'http://localhost:3000/requestkey';
+    const key = 'https://pic-n-read-server.herokuapp.com/requestkey';
     const endPoint = 'https://api.api-ninjas.com/v1/imagetotext';
 
     try {
