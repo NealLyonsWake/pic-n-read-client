@@ -1,14 +1,15 @@
 const uploader = document.querySelector('#uploader');
 const playPauseBTN = document.querySelector('#play-pause');
-const resultParent = document.querySelector('#result-parent')
+const resultParagraph = document.querySelector('#result')
 
 async function testRequest(e) {
     const formData = new FormData();
     formData.append('image', uploader.files[0]);
     console.log(uploader.files[0]);
+    resultParagraph.innerHTML ='Loading...Please wait...';
 
     const key = 'https://pic-n-read-server.herokuapp.com/requestkey';
-    // const key = 'http://localhost:3000/requestkey';
+    // const key = 'http://localhost:3000/requestkey'; // Used for development
     const endPoint = 'https://api.api-ninjas.com/v1/imagetotext';
 
     try {
@@ -26,18 +27,25 @@ async function testRequest(e) {
         const txtExtract = response.map((word) => {
             return word.text
         }).join(' ');
+
         console.log(txtExtract);
 
         const utterance = new SpeechSynthesisUtterance(txtExtract);
         speechSynthesis.speak(utterance);
 
-        const presentTxt = document.createElement("p");
-        presentTxt.innerHTML = txtExtract;
-        resultParent.appendChild(presentTxt);
-
+        resultParagraph.innerHTML = txtExtract;
+       
     }
     catch (e) {
         console.log(e);
+
+        const errorMSG = 'There was an error! Try again with a valid PNG or JPG file';
+
+        const utterance = new SpeechSynthesisUtterance(errorMSG);
+        speechSynthesis.speak(utterance);
+       
+        resultParagraph.innerHTML = errorMSG;
+      
     };
 
 };
