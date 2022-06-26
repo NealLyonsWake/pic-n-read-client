@@ -3,6 +3,11 @@
 var uploader = document.querySelector('#uploader');
 var playPauseBTN = document.querySelector('#play-pause');
 var resultParagraph = document.querySelector('#result');
+var uploadedName = document.querySelector('#uploaded-name');
+
+uploader.onchange = function () {
+  uploadedName.innerHTML = "".concat(uploader.files[0].name, " uploaded.");
+};
 
 function testRequest(e) {
   var formData, key, endPoint, unlock, apiKey, options, sentImg, response, txtExtract, utterance, errorMSG, _utterance;

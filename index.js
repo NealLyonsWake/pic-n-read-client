@@ -1,6 +1,11 @@
 const uploader = document.querySelector('#uploader');
 const playPauseBTN = document.querySelector('#play-pause');
-const resultParagraph = document.querySelector('#result')
+const resultParagraph = document.querySelector('#result');
+const uploadedName = document.querySelector('#uploaded-name')
+
+uploader.onchange = ()=> {
+    uploadedName.innerHTML = `${uploader.files[0].name} uploaded.`;
+};
 
 async function testRequest(e) {
     const formData = new FormData();
