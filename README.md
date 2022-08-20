@@ -3,6 +3,9 @@
 ## Deployed Web Application
 Check it out [here.](https://pic-n-read.netlify.app/)
 
+## Video demo
+Check out a demo [here.](https://youtu.be/PPYIagGXU58)
+
 ## What is this?
 To celebrate Pride Month and be part of Pride Hacks 2 our team were inspired to build a web application that supports accessibility. This repo is the client side which enables users to upload photographs that include text in order for the text to be read out aloud by the application. 
 
