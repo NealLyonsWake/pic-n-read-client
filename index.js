@@ -10,7 +10,7 @@ uploader.onchange = ()=> {
 async function testRequest(e) {
     const formData = new FormData();
     formData.append('image', uploader.files[0]);
-    console.log(uploader.files[0]);
+
     resultParagraph.innerHTML ='Loading...Please wait...';
 
     const key = 'https://pic-n-read-server.herokuapp.com/requestkey';
@@ -33,12 +33,14 @@ async function testRequest(e) {
             return word.text
         }).join(' ');
 
-        console.log(txtExtract);
-
         const utterance = new SpeechSynthesisUtterance(txtExtract);
         speechSynthesis.speak(utterance);
 
-        resultParagraph.innerHTML = txtExtract;
+        utterance.onboundary= (event) => {
+            const startPos = event.charIndex;
+            const word = event.utterance.text.substring(startPos).split(' '); 
+            resultParagraph.innerHTML = word[0].toUpperCase();
+          }
        
     }
     catch (e) {
@@ -49,8 +51,7 @@ async function testRequest(e) {
         const utterance = new SpeechSynthesisUtterance(errorMSG);
         speechSynthesis.speak(utterance);
        
-        resultParagraph.innerHTML = errorMSG;
-      
+        resultParagraph.innerHTML = errorMSG; 
     };
 
 };

@@ -10,24 +10,26 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
     <div class="text-center">
-        <h2>Pic 'n Read</h2>
-        <h4>Upload a photo that contains text and play me</h3>
-            <p>Valid files are PNG or JPG.</p>
+            <header>
+                <h1>Pic 'n Read</h1>
+                <h6>Upload a photo that contains text and play me</h6>
+                <p>Valid files are PNG or JPG.</p>
+            </header>
         <div class="file-load-container">
             <input type="file" name="uploader" id="uploader" accept="image/jpeg image/jpg image/png" hidden/>
             <label for="uploader">+</label>
             <p id="uploaded-name"></p>
         </div>
-        <div class="play-btn-container">
-            <button type="button" class='btn btn-primary' id="play-pause">Play</button>
-        </div>
         <div id="result-parent">
             <p id="result"></p>
+        </div>
+        <div class="play-btn-container">
+            <button type="button" class='btn btn-primary' id="play-pause">Play</button>
         </div>
     </div>
     <footer class="mt-auto">
         <div class="text-center text-dark p-3" style="background-color: rgba(19, 19, 20, 0.312);">
-          <a class="text-dark" href="https://pridehacksii.devpost.com/">Made for PrideHacksII in 24hours @DevPost</a>
+          <a href="https://pridehacksii.devpost.com/" target="_blank">Made for PrideHacksII in 24hours @DevPost</a>
         </div>
       </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
